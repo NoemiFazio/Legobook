@@ -1,0 +1,197 @@
+html,
+body {
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  font-family: "Patua One", cursive;
+}
+input,
+button {
+  font-family: "Patua One", cursive;
+}
+.main-header {
+  background-color: #ffcf00;
+}
+.main-header a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 0 8px 0 8px;
+}
+.main-header ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.main-navbar {
+  text-align: center;
+}
+.legobook {
+  margin-top: 30px;
+  width: 230px;
+  border-radius: 20px;
+}
+
+.friends {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: rgb(255, 255, 255);
+}
+
+.friends img {
+  width: 47px;
+  padding: 10px;
+  background: rgb(255, 255, 255);
+  border-radius: 100%;
+}
+
+.friendCard {
+  margin: 20px 0 20px 0;
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+  width: 150px;
+  padding: 20px 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  font-weight: bold;
+  background: #f21418d6;
+  border-radius: 20px;
+}
+.input-text:focus::placeholder {
+  color: transparent;
+}
+
+.input-sender:focus::placeholder {
+  color: transparent;
+}
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  background: #ffcf00;
+}
+
+.add-new-message {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+}
+.filter {
+  margin: auto;
+}
+.filter-input {
+  margin: 0 20px;
+  width: 200px;
+}
+
+.messageCard {
+  display: flex;
+  flex-direction: column;
+  border: 2px dotted #f21418d6;
+  padding: 0 20px;
+  color: #000000d6;
+  background-color: white;
+  border-radius: 20px;
+}
+
+.messages-list {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gallery {
+  width: 100%;
+  background: rgb(255, 255, 255);
+  margin: 40px 0px;
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+
+  flex-flow: row wrap;
+
+  justify-content: center; /* X-axis */
+  align-items: start; /* Y-axis */
+  align-content: center;
+}
+.card-g img {
+  width: 160px;
+  border-radius: 20px;
+  box-shadow: 0 0 4px /*rgba(0, 0, 0, 0.45)*/ rgba(248, 164, 200, 0.185);
+  margin: 12px 5px 10px 5px;
+}
+
+@media only screen and (min-width: 767px) {
+  body .main-section {
+    display: flex;
+    flex-direction: row;
+  }
+  .legobook {
+    width: 280px;
+  }
+  .main-header a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 0 40px 0 40px;
+    font-size: 20px;
+  }
+  .main-section {
+    padding-top: 18px;
+  }
+
+  .friends {
+    width: 25%;
+  }
+
+  .messages {
+    width: 33%;
+    flex-grow: 1;
+  }
+
+  .empty {
+    width: 25%;
+  }
+  .friends img {
+    transition: transform 0.35s;
+  }
+  .friends img:hover {
+    transform: scale(1.2);
+  }
+  .gallery {
+    margin: 0px;
+    width: 25%;
+    background: rgb(255, 255, 255);
+    /* margin: 40px 0px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    /* min-height: 400px; */
+
+    /* flex-flow: row wrap; */
+
+    /* justify-content: center; /* X-axis */
+    /* align-items: start; Y-axis
+    align-content: center; */
+  }
+
+  .card-g img {
+    width: 200px;
+    margin: 40px 5px 40px 5px;
+    cursor: pointer;
+    transition: transform 0.35s;
+  }
+  .card-g img:hover {
+    transform: scale(1.2);
+  }
+  a:hover {
+    color: #f21418d6;
+  }
+}

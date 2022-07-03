@@ -69,6 +69,38 @@ button {
 .input-sender:focus::placeholder {
   color: transparent;
 }
+
+.add-new-message-btn {
+  margin-top: 15px;
+  height: 40px;
+  animation: wiggle 2s linear infinite;
+}
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-2deg);
+  }
+  20% {
+    transform: rotateZ(5deg);
+  }
+  25% {
+    transform: rotateZ(-5deg);
+  }
+  30% {
+    transform: rotateZ(5deg);
+  }
+  35% {
+    transform: rotateZ(-2deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
 .messages {
   display: flex;
   flex-direction: column;
@@ -88,7 +120,8 @@ button {
 }
 .filter-input {
   margin: 0 20px;
-  width: 200px;
+  width: 270px;
+  height: 20px;
 }
 
 .messageCard {
@@ -151,14 +184,26 @@ button {
     width: 25%;
   }
 
+  .add-new-message input {
+    height: 30px;
+  }
+
   .messages {
     width: 33%;
     flex-grow: 1;
   }
 
-  .empty {
-    width: 25%;
+  .filter {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
   }
+  .filter-input {
+    margin: 0 20px;
+    width: 400px;
+    height: 25px;
+  }
+
   .friends img {
     transition: transform 0.35s;
   }

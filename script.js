@@ -24,13 +24,27 @@ GET("https://edgemony-backend.herokuapp.com/friends").then((friendList) => {
 });
 
 // Messages
-GET("https://edgemony-backend.herokuapp.com/messages").then((messagesList) => {
-  messagesList
-    .reverse()
-    .map(({ text, sender, date }) =>
-      createMessageEl(messagesListEl, text, sender, date)
-    ); // Questo è identico a quello che succede in riga 11
-});
+GET("https://edgemony-backend.herokuapp.com/messages")
+  .then((messagesList) => {
+    messagesList
+      .reverse()
+      .map(({ text, id, sender, date }) =>
+        createMessageEl(messagesListEl, id, text, sender, date)
+      ); // Questo è identico a quello che succede in riga 11
+  })
+  .then(() =>
+    //DA QUESTA RIGA PARTE IL CODICE PER ELIMINARE UN MESSAGGIO AL CLICK
+    messagesListEl.childNodes.forEach((message) =>
+      message.addEventListener(
+        "click",
+        () =>
+          DELETE(
+            "https://edgemony-backend.herokuapp.com/messages",
+            message.id
+          ).then(() => location.reload()) //QUESTA FA SI CHE AL CLICK, OLTRE AD ELIMINARE IL MESS, RICARICA LA PAGINA
+      )
+    )
+  );
 
 inputTextEl.addEventListener(
   "input",
@@ -54,8 +68,8 @@ addMsgBtn.addEventListener("click", () => {
         (messagesList) => {
           messagesList
             .reverse()
-            .map(({ text, sender, date }) =>
-              createMessageEl(messagesListEl, text, sender, date)
+            .map(({ text, id, sender, date }) =>
+              createMessageEl(messagesListEl, id, text, sender, date)
             );
         }
       )
@@ -74,9 +88,10 @@ filterInput.addEventListener("input", (e) => {
         .filter((message) =>
           message.sender.toLowerCase().includes(e.target.value.toLowerCase())
         )
-        .map(({ text, sender, date }) =>
-          createMessageEl(messagesListEl, text, sender, date)
+        .map(({ text, id, sender, date }) =>
+          createMessageEl(messagesListEl, id, text, sender, date)
         ); // Questo è identico a quello che succede in riga 11
     }
   );
 });
+console.log("--->", messagesListEl.children);
